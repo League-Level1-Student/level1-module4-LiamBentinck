@@ -1,6 +1,8 @@
 package _01_nasty_surprise;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -11,19 +13,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NastySuprise {
-	
+public class NastySuprise implements ActionListener {
+	JButton trick = new JButton();
+	JButton treat = new JButton();
 	void setup() {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
-		JButton trick = new JButton();
-		JButton treat = new JButton();
 		frame.add(panel);
 		frame.setVisible(true);
 		trick.setText("trick");
 		treat.setText("Treat");
-		trick.addActionListener(true);
-		treat.addActionListener(true);
+		trick.addActionListener(this);
+		treat.addActionListener(this);
 		panel.add(trick);
 		panel.add(treat);
 		frame.pack();
@@ -42,5 +43,17 @@ public class NastySuprise {
 	    } catch (MalformedURLException e) {
 	        e.printStackTrace();
 	    }
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource()==trick) {
+		showPictureFromTheInternet("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg");	
+		}
+		else if (e.getSource()==treat) {
+			showPictureFromTheInternet("https://i.pinimg.com/originals/67/34/e0/6734e009f05a78a6c4c9ecf3cf2d19bc.png");
+		}
 	}
 }
