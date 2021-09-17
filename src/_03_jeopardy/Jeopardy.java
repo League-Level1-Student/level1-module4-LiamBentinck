@@ -69,11 +69,17 @@ public class Jeopardy implements ActionListener {
 		
 		// 9. Use the secondButton variable to hold a button using the createButton
 		secondButton = createButton("20");
+		thirdButton = createButton("600");
+		fourthButton = createButton("1000");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+		quizPanel.add(thirdButton);
+		quizPanel.add(fourthButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
 		secondButton.addActionListener(this);
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 		
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -113,6 +119,7 @@ public class Jeopardy implements ActionListener {
 		// If the buttonPressed was the firstButton
 		if (buttonPressed==firstButton) {
 			askQuestion("Why is a lightbulb yellow?", "Because it glows.", 10);
+			firstButton.setText("");
 		}
 			// Call the askQuestion() method
 		
@@ -121,11 +128,20 @@ public class Jeopardy implements ActionListener {
 		// If the buttonPressed was the secondButton
 		if (buttonPressed==secondButton) {
 			askQuestion("Why is the ocean blue?", "Because the blue paint from boats stained the water.", 20);
+			secondButton.setText("");
+		}
+		if (buttonPressed==thirdButton) {
+			askQuestion("Why do computer screens glow?", "Because it glows.", 600);
+			thirdButton.setText("");
+		}
+		if (buttonPressed==fourthButton) {
+			askQuestion("Why is the sky blue?", "Because it reflects off the ocean.", 1000);
+			fourthButton.setText("");
 		}
 			// Call the askQuestion() method with a harder question
 
 		// Clear the text on the button that was pressed (set the button text to nothing)
-
+		
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
